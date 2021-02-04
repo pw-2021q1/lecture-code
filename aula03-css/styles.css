@@ -1,0 +1,17 @@
+h1, h2 {
+   color: purple;
+}
+
+h1 {
+   font-size: 24pt;
+   text-decoration: underline;
+}
+
+h2 {
+   font-size: 18pt;
+   font-weight: bold;
+}
+
+p {
+   font-weight: bolder;
+}
