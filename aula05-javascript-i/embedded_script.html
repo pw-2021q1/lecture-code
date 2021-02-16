@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded script</title>
+    <script>
+        function askConfirmation() {
+            alert("Are you sure?")
+        }
+        
+        window.addEventListener("load", function () {
+            document.getElementById("ok-button")
+                .addEventListener("click", askConfirmation);
+        });
+    </script>
+</head>
+<body>
+    <input id="ok-button" type="button" value="Ok">
+</body>
+</html>

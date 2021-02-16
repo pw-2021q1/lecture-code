@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference types</title>
+    <script>
+        let v = [1, 2, 3, 4, 5];
+        let b = v;
+
+        console.log(v);
+        console.log(b);
+
+        b[1] = 10;
+
+        console.log(v);
+        console.log(b);
+
+        console.log(v === b);
+
+        let c = []
+
+        for (let i = 0; i < v.length; i++) {
+            c.push(v[i]);
+        }
+
+        c[1] = 20;
+
+        console.log(v);
+        console.log(c);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
