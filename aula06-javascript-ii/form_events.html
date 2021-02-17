@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form events</title>
+    <script>
+        "use strict";
+        const validateForm = function () {
+            const form = document.getElementById("login-form")
+
+            form.addEventListener("submit", function (e) {
+                const username = document.getElementById("username").value
+                const password = document.getElementById("password").value
+
+                if (username.trim().length == 0) {
+                    alert("Username is required")
+                    e.preventDefault()
+                    return
+                }
+                if (password.trim().length == 0) {
+                    alert("Password is required")
+                    e.preventDefault()
+                    return
+                }
+
+            })
+        }
+
+        window.addEventListener("load", validateForm)
+    </script>
+</head>
+<body>
+    <form action="#" method="get" id="login-form">
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username">
+        <br>
+        <label for="password">Password: </label>
+        <input type="text" name="password" id="password">
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

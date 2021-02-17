@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <script>
+        // const joao = {
+        //     nome: 'joao',
+        //     sobrenome: 'silva',
+        //     ra: '1234',
+        //     fullname () {
+        //         return this.nome + " " + this.sobrenome
+        //     }
+        // }
+
+        function Aluno(nome, sobrenome, ra) {
+            this.nome = nome
+            this.sobrenome = sobrenome
+            this.ra = ra
+
+            // this.fullname = function() {
+            //     return this.nome + " " + this.sobrenome
+            // }
+        }
+
+        Aluno.prototype.fullname = function() {
+            return this.nome + " " + this.sobrenome
+        }
+
+        const joao = new Aluno('joao', 'silva', '1234')
+        const maria = new Aluno('maria', 'pereira', '5678')
+
+        console.log(joao)
+        console.log(maria)
+
+        
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

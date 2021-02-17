@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For loop</title>
+    <script>
+        "use strict";
+
+        for (let i = 0; i <= 10; i++) {
+            document.write("<p> " + i + "a. linha <br></p>")
+        }
+
+        const a = [11, 12, 13, 14, 15]
+
+        a.push(16)
+        a.push(17)
+        a.push(18)
+        a.pop()
+
+        for (let i = 0; i < a.length; i++) {
+            document.write("<p>" + a[i] + " eh um dos valores iterados <br></p>")
+        }
+
+        for (const v of a) {
+            document.write("<p>" + v + " eh um dos valores iterados <br></p>")
+        }
+
+        for (const i in a) {
+            document.write("<p>" + i + " eh um dos indices do array <br></p>")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

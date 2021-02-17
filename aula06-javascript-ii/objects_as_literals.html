@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <script>
+        const joao = {
+            nome: 'joao',
+            sobrenome: 'silva',
+            ra: '1234',
+            fullname () {
+                return this.nome + " " + this.sobrenome
+            }
+        }
+
+        const maria = {
+            nome: 'maria',
+            sobrenome: 'pereira',
+            ra: '5678', 
+            fullname () {
+                return this.nome + " " + this.sobrenome
+            }
+        }
+
+        const Aluno = {
+            fullname () {
+                return this.nome + " " + this.sobrenome
+            }
+        }
+
+        const joao2 = Object.create(Aluno, {
+            nome: {value: 'joao'},
+            sobrenome: {value: 'silva'},
+            ra: {value: '1234'}
+        })
+
+        const maria2 = Object.create(Aluno, {
+            nome: {value: 'maria'},
+            sobrenome: {value: 'pereira'},
+            ra: {value: '5678'}
+        })
+
+        console.log(Aluno)
+        console.log(joao2)
+        console.log(maria2)
+        console.log(joao2 === Aluno)
+        console.log(maria2 === Aluno)
+        console.log(joao2 === maria2)
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

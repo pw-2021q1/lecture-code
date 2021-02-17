@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <script>
+        "use strict";
+        // global function
+        function power(x, y) {
+            let p = 1
+
+            for (let i = 0; i < y; i++) {
+                p *= x
+            }
+
+            return p
+        }
+
+        // scope-bound function
+        const power2 = function(x, y) {
+            let p = 1
+
+            for (let i = 0; i < y; i++) {
+                p *= x
+            }
+
+            return p
+        }
+
+        // scope-bound lambda expression (arrow function)
+        const power3 = (x, y) => {
+            let p = 1
+
+            for (let i = 0; i < y; i++) {
+                p *= x
+            }
+
+            return p
+        }
+        // 1/0! + 1/1! + 1/2! + ... + 1/n! n->inf
+        const fact = x => (x == 0) ?  1 : x * fact(x-1)
+        const euler = n => (n < 0) ? 0 : 1 / fact(n) + euler(n-1)
+        
+
+        document.write("<p> 2**3 = " + power(2,3) + "</p>")
+        document.write("<p> 2**0 = " + power(2,0) + "</p>")
+        document.write("<p> 11*5 = " + power(11,5) + "</p>")
+        document.write("<br>")
+        document.write("<p> 2**3 = " + power2(2,3) + "</p>")
+        document.write("<p> 2**0 = " + power2(2,0) + "</p>")
+        document.write("<p> 11*5 = " + power2(11,5) + "</p>")
+        document.write("<br>")
+        document.write("<p> 2**3 = " + power3(2,3) + "</p>")
+        document.write("<p> 2**0 = " + power3(2,0) + "</p>")
+        document.write("<p> 11*5 = " + power3(11,5) + "</p>")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard events</title>
+    <script>
+        "use strict";
+        window.addEventListener("load", function () {
+            document.addEventListener("keypress", function (e) {
+                const keyPressed = e.keyCode
+                const character = String.fromCharCode(keyPressed)
+
+                const t = document.createTextNode(character)
+                const container = document.getElementById("keyboard-output")
+
+                container.appendChild(t)
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="keyboard-output"></div>
+</body>
+</html>
