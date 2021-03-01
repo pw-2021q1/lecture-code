@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert block</title>
+    <script>
+        window.onload = function () {
+            document.getElementById("click-me").addEventListener("click", 
+                function () {
+                    alert("You cliked the button")
+
+                    const paragraph = document.createElement("p")
+
+                    paragraph.textContent = "This should be added after button click"
+                    document.body.appendChild(paragraph)
+                })
+        }
+    </script>
+</head>
+<body>
+    <button id="click-me">Click me</button>
+</body>
+</html>

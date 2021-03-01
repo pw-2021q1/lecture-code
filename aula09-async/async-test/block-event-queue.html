@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block event queue</title>
+    <script>
+        const start = new Date().getSeconds()
+        const delay = 500
+        const waitSeconds = 5
+
+        console.log(`Registering callback for ${delay} ms...`)
+        setTimeout(() => {
+            console.log("Called after " 
+                + (new Date().getSeconds() - start) + "s")
+        }, delay)
+        console.log("Started heavy processing...")
+        while (new Date().getSeconds() - start < waitSeconds) {}
+        console.log(`Blocked the thread for ${new Date().getSeconds() - start} s`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

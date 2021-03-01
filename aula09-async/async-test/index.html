@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async test</title>
+    <script>
+        function write() {
+            setTimeout(function () {
+                document.write("a")
+            }, 1)
+            setTimeout(function () {
+                document.write("b")
+            }, 3)
+            setTimeout(function () {
+                document.write("c")
+            }, 2)
+            document.write("d")
+        }
+        window.onload = write
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
