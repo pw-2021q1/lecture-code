@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice simulator</title>
+    <style>
+        li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        ul {
+            margin: 0;
+        }
+    </style>
+    <script src="../dist/index.js"></script>
+</head>
+<body>
+    <input type="button" id="rollButton" value="Roll dice">
+
+    <ol>
+        <li><img id="die1" src="img/blank.png" alt=""></li>
+        <li><img id="die2" src="img/blank.png" alt=""></li>
+        <li><img id="die3" src="img/blank.png" alt=""></li>
+        <li><img id="die4" src="img/blank.png" alt=""></li>
+    </ol>
+</body>
+</html>

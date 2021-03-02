@@ -1,0 +1,12 @@
+body	{background: #FFF; color: #000; font: 12pt serif;}
+#barra-brasil{
+    display: none;
+}
+
+header, footer, #navigation, .below-content, .rastro-navegacao, .espMobile, .btns-social-like{
+    display: none;
+}
+
+.documentFirstHeading{
+    font-size: 1.5em !important;
+}

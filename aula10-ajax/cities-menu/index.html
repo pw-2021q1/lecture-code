@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cities dynamic filter</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="dist/index.js"></script>
+</head>
+<body>
+    <main>
+        <select id="countries" data-url="http://www.randyconnolly.com/funwebdev/services/travel/cities.php">
+            <option value="0">Select a country</option>
+            <option value="CA">Canada</option>
+            <option value="FR">France</option>
+            <option value="DE">Germany</option>
+            <option value="IT">Italy</option>
+            <option value="US">USA</option>
+        </select>
+
+        <div>
+            <select id="cities"></select>
+        </div>
+    </main>
+</body>
+</html>
