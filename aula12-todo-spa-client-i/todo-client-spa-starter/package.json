@@ -1,0 +1,9 @@
+{
+  "name": "todo-client-spa-starter",
+  "version": "1.0.0",
+  "description": "ToDo! Client SPA",
+  "main": "index.js",
+  "repository": "https://github.com/pw-2021q1/todo-client-spa-starter.git",
+  "author": "Diogo S. Martins",
+  "license": "MIT"
+}
