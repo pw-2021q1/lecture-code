@@ -1,5 +1,5 @@
 namespace Model {
-    const RA = "2123689"
+    const RA = "" // TODO: FILL WITH YOUR RA
     const HOST = "https://pw2021q1-todo-spa.herokuapp.com/api"
 
     /**
@@ -23,6 +23,10 @@ namespace Model {
      * DAO
      */
     export class ToDoItemDAO {
+        /**
+         * List all elements from the database
+         * @returns a list of ToDoItem
+         */
         async listAll(): Promise<ToDoItem[]> {
             try {
                 const response = await fetch(`${HOST}/${RA}/list`)
@@ -39,6 +43,11 @@ namespace Model {
             }
         }
 
+        /**
+         * Insert an element in the database
+         * @param item a ToDoItem
+         * @returns a boolean promise
+         */
         async insert(item: ToDoItem): Promise<boolean> {
             try {
                 const response = await fetch(`${HOST}/${RA}/add`, {
