@@ -1,0 +1,145 @@
+/**
+ * These are the commands we issued (interactively) in the mongodb shell
+ * It cannot be used directly as a mongodb script
+ */
+
+// create a database
+// it is effectivelly created when you first insert data
+use aula15
+
+// show available databases
+show dbs
+
+// insert data in a collection
+// (in the current database)
+db.cities.insert({
+    name: 'Santo André', 
+    population: 710210,
+    area_km2: 175.8,
+    populationDensity: 4000,
+    elevation_m: 700,
+    lastCensus: 2015,
+    hdi: 0.815
+})
+db.cities.insert({
+    name: 'São Bernardo do Campo', 
+    population: 816925,
+    area_km2: 409.51,
+    populationDensity: 2000,
+    elevation_m: 762,
+    lastCensus: 2015,
+    hdi: 0.805
+})
+db.cities.insert({
+    name: 'São Caetano do Sul', 
+    population: 158024,
+    area_km2: 15.33,
+    populationDensity: 10000,
+    elevation_m: 744,
+    lastCensus: 2015,
+    hdi: 0.862
+})
+
+// show collections in the current db
+show collections
+
+// list all docs in a collection
+db.cities.find()
+
+// count docs in a collection
+db.cities.count()
+
+// mongo help system (global)
+db.help()
+
+// mongo help system (contextual, in this case for a specific collection)
+db.cities.help()
+
+// mongo shell is actually a javascript REPL
+typeof db
+typeof db.cities
+typeof db.cities.insert
+db.cities.insert
+
+// we can use js code to manipulate the data
+function listCityNames() {
+    const names = [];
+    const cursor = db.cities.find();
+    while (cursor.hasNext()) {
+        const city = cursor.next();
+
+        names.push(city['name']);
+    }
+
+    return names
+}
+
+listCityNames()
+
+// queries are issued via the collection's find() function
+// it receives a query document and a projection document
+// query document may specify a exact match or a regexp match 
+// in one or more fields (by default, all conditions are combined
+// in a conjunction --- ANDed)
+db.cities.find({name: 'Santo André'})
+db.cities.find({name: /^São/})
+db.cities.find({name: /^São/, population: {$lt: 200000}})
+
+// query documents can use relational operators
+const populationRange = {
+    '$lt': 800000,
+    '$gt': 200000
+};
+db.cities.find({population: populationRange});
+db.cities.find({population: populationRange}, {name: true});
+
+// query documents can use logical operators (besides conjunction)
+db.cities.find({
+    $or : [
+        {population: {$lt: 200000}},
+        {population: {$gt: 800000}}
+    ]
+})
+
+// query objects by default return a mongo cursor
+// if we want to retrieve a pure single doc, we use findOne()
+scs = db.cities.findOne({'name': 'São Caetano do Sul'})
+
+// to update a document we use the collection's update() function
+// it receives a query document and an update document
+// the update document uses several directives to guide the update process
+// see https://docs.mongodb.com/manual/reference/method/db.collection.update/
+// Nowadays, it is recommended to use updateOne() e updateMany() instead
+db.cities.update(
+    {_id: scs._id}, 
+    {$set : {population: scs.population + 1}})
+
+db.cities.update(
+    {_id: scs._id}, 
+    {$inc : {population: 1000}})
+
+
+// to remove a document we use the collection's remove() function
+// it receives a query document and removes all documents that match
+// the query 
+lowDensity = {
+    populationDensity: {$lt: 4000}
+}
+
+db.cities.find(lowDensity)
+db.cities.remove(lowDensity)
+
+// create a unique index
+db.cities.createIndex({name: 1}, {unique: true});
+// list the index
+db.cities.getIndexes()
+// test unique index (should trigger a 'not unique' error)
+db.cities.insert({
+    name: 'Santo André', 
+    population: 710210,
+    area_km2: 175.8,
+    populationDensity: 4000,
+    elevation_m: 700,
+    lastCensus: 2015,
+    hdi: 0.815
+})
