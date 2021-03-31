@@ -1,0 +1,42 @@
+:root {
+    --primary-color: #ac3b61;
+}
+
+a {
+    color: #123c69;
+    font-weight: bold;
+}
+
+h6 {
+    color: var(--primary-color)
+}
+
+#app-name {
+    font-family: 'RocknRoll One', sans-serif;
+    color: var(--primary-color)
+}
+
+body {
+    background-color: #edc7b7;
+}
+
+main {
+    background-color: #eee2dc;
+}
+
+.list-item-deadline {
+    font-size: small;
+}
+
+
+footer {
+    font-size: small;
+}
+
+#sitemap {
+    list-style: none;
+    columns: 2;
+}
+
+
+

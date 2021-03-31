@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo! SPA server API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+
+<body class="container mt-3">
+
+    <h1>ToDO! SPA Server API</h1>
+
+    <h2>Instruções gerais</h2>
+
+    <ul>
+        <li>
+            URL-base: <p><code>http://localhost:3000/api</code></p>
+        </li>
+    </ul>
+
+    <h2>Formato das respostas</h2>
+
+    <ul>
+        <li>Todas as operações enviam como resposta um documento JSON, que inclui a propriedade
+            <code>"status"</code> assumindo um dos seguintes valores:
+            <ul>
+                <li><code>"ok"</code>: caso a operação tenha sido bem sucedida</li>
+                <li><code>"failure"</code>: caso tenha ocorrio algum erro</li>
+            </ul>
+        </li>
+        <li> O documento de resposta inclui também a propriedade <code>"message"</code>
+            que traz mais detalhes sobre o problema.
+        </li>
+        <li>Os seguintes códigos de status HTTP podem ser enviados como resposta:
+            <ul>
+                <li><code>200</code>: sucesso</li>
+                <li><code>500</code>: Erro interno do servidor (e.g. falha no BD)</li>
+                <li><code>406</code>: Dados recebidos em formato inválido</li>
+            </ul>
+        </li>
+        <li>Exemplos de documentos de resposta</li>
+        <ul>
+
+            <li><strong>Sucesso:</strong>
+<pre class="border p-2 bg-light">
+{
+    "status":"ok",
+    "items":[
+        {
+            "id":596,
+            "description":"Make up some new ToDos",
+            "deadline":"Tue, 01 Jan 2019 12:45:00 GMT"
+        },
+        
+        {
+            "id":598,
+            "description":"Answer recruiter emails on LinkedIn",
+            "tags":[
+                "tag1",
+                "tag2"
+            ]
+        }
+    ]
+}
+</pre>
+            </li>
+
+            <li><strong>Erro/fracasso:</strong>
+<pre class="border p-2 bg-light">
+{
+    "status":"failure",
+    "message":"Unknown operation"
+}
+</pre>
+            </li>
+        </ul>
+    </ul>
+
+
+    <h2>Operações</h2>
+
+    <p>Para os formatos de resposta que incluem o tipo <code>ToDoItem</code>, considerar
+        a seguinte definição de tipo em TypeScript:</p>
+<pre class="border p-2 bg-light">
+interface ToDoItem {
+    id: number,
+    description: number,
+    tags?: [string]
+    deadline?: string
+}
+</pre>
+    </p>
+
+
+    <h3><code>/list</code></h3>
+
+    <dl>
+        <dt>Descrição</dt>
+        <dd>Lista todos os items</dd>
+
+        <dt>Método</dt>
+        <dd>GET</dd>
+
+        <dt>Exemplo</dt>
+        <dd><code>http://localhost:3000/api/list</code></dd>
+
+        <dt>Formato da resposta (sucesso)</dt>
+        <dd>
+<pre class="border p-2 bg-light">
+{
+    status: string,
+    items: [ToDoItem]
+}
+</pre>
+        </dd>
+    </dl>
+
+    <h3><code>/add</code></h3>
+
+    <dl>
+        <dt>Descrição</dt>
+        <dd>Adiciona um item. O <code>id</code> é gerado automaticamente.</dd>
+
+        <dt>Método</dt>
+        <dd>PUT</dd>
+
+        <dt>Exemplo</dt>
+        <dd><code>http://localhost:3000/api/add</code></dd>
+
+        <dt>Formato do corpo da requisição</dt>
+        <dd>
+<pre class="border p-2 bg-light">
+{
+    description: string,
+    tags?: string[],
+    deadline?: string
+}
+</pre>
+        </dd>
+
+        <dt>Formato da resposta</dt>
+        <dd>
+<pre class="border p-2 bg-light">
+{
+    status: string,
+    message: string,
+    debug?: string
+}
+</pre>
+        </dd>
+    </dl>
+
+    <h3><code>/remove/&lt;id&gt;</code></h3>
+
+    <dl>
+        <dt>Descrição</dt>
+        <dd>Remove um item com o <code>id</code> informado.</dd>
+
+        <dt>Método</dt>
+        <dd>DELETE</dd>
+
+        <dt>Exemplo</dt>
+        <dd><code>http://localhost:3000/api/remove/45</code></dd>
+        </dd>
+
+        <dt>Formato da resposta</dt>
+        <dd>
+<pre class="border p-2 bg-light">
+{
+    status: string,
+    message: string,
+    debug?: string
+}
+</pre>
+        </dd>
+    </dl>
+    
+    <h3><code>/update</code></h3>
+
+    <dl>
+        <dt>Descrição</dt>
+        <dd>Atualiza um item. O <code>id</code> do objeto enviado deve coincidir com o id
+            de um dos objetos armazenados.</dd>
+
+        <dt>Método</dt>
+        <dd>PUT</dd>
+
+        <dt>Exemplo</dt>
+        <dd><code>http://localhost:3000/api/update</code></dd>
+
+        <dt>Formato do corpo da requisição</dt>
+        <dd>
+
+<pre class="border p-2 bg-light">
+{
+    id: number,
+    description: string,
+    tags?: string[],
+    deadline?: string
+}
+</pre>
+
+        </dd>
+
+        <dt>Formato da resposta</dt>
+        <dd>
+<pre class="border p-2 bg-light">
+{
+    status: string,
+    message: string,
+    debug?: string
+}
+</pre>
+        </dd>
+    </dl>
+
+    <h3><code>/item/&lt;id&gt;</code></h3>
+
+    <dl>
+        <dt>Descrição</dt>
+        <dd>Recupera o item com o <code>id</code> informado.</dd>
+
+        <dt>Método</dt>
+        <dd>GET</dd>
+
+        <dt>Exemplo</dt>
+        <dd><code>http://localhost:3000/api/item/45</code></dd>
+        </dd>
+
+        <dt>Formato da resposta</dt>
+        <dd>
+<pre class="border p-2 bg-light">
+{
+    status: string,
+    message?: string,
+    item?: ToDoItem
+}
+</pre>
+        </dd>
+    </dl>
+
+</body>
+
+</html>

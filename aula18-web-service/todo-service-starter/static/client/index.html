@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>ToDo!</title>
+</head>
+
+<body>
+    <header class="border-bottom">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">
+                    <img src="https://icon-library.net//images/to-do-list-icon/to-do-list-icon-13.jpg" height="50px" />
+                    <span id="app-name" class="h2 align-middle">ToDo!</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-fluid pt-4 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <ul class="nav nav-tabs flex-column flex-md-row" id="tab-list" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" href="#newest-pane" role="tab" id="newest-tab" data-bs-toggle="tab"
+                            aria-controls="newest-pane" aria-selected="true">
+                            <h6>Newest</h6>
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" href="#oldest-pane" role="tab" id="oldest-tab" data-bs-toggle="tab"
+                            aria-controls="oldest-pane" aria-selected="false">
+                            <h6>Oldest</h6>
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" href="#tags-pane" role="tab" id="tags-tab" data-bs-toggle="tab"
+                            aria-controls="tags-pane" aria-selected="false">
+                            <h6>Tags</h6>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content px-0 py-3 border border-top-0 bg-white rounded-bottom shadow" id="tab-content">
+                    <div class="btn-toolbar px-3 pb-3 border-bottom" role="toolbar" aria-label="Toolbar">
+                        <div class="btn-group" role="group" aria-label="ToDo item actions">
+                            <button id="btn-add" type="button" class="btn btn-outline-secondary">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <button id="btn-remove" type="button" class="btn btn-outline-secondary">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            <button id="btn-edit" type="button" class="btn btn-outline-secondary">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="newest-tab"
+                        id="newest-pane">
+                        <ul id="newest-content" class="list-group list-group-flush">
+
+                        </ul>
+                    </div>
+
+                    <div class="tab-pane fade" role="tabpanel" aria-labelledby="oldest-tab" id="oldest-pane">
+                        <ul id="oldest-content" class="list-group list-group-flush">
+
+                        </ul>
+                    </div>
+
+                    <div class="tab-pane fade" role="tabpanel" aria-labelledby="tags-tab" id="tags-pane">
+                        <ul id="tags-content" class="list-group list-group-flush">
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="sticky-bottom pt-3 border-top">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <address>
+                        <h6>Contact us</h6>
+                        <p><strong>ToDo!</strong> <br>
+                            Av. dos Estados, 5001 <br>
+                            Santo André, SP
+                        </p>
+                    </address>
+                </div>
+                <div class="col-md-4">
+                    <h6>Sitemap</h6>
+                    <ul id="sitemap" class="p-0">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <template id="list-item-template">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="item-check">
+                        <span class="list-item-desc pr-2">Title</span>
+                        <span class="badge-container px-1">
+                            <span class="list-item-badge badge rounded-pill bg-secondary">tag1</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="list-item-deadline col-2 d-flex flex-row-reverse">Date</div>
+            </div>
+        </li>
+    </template>
+
+    <div class="modal fade" id="form-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="form-label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="form-label">Add new item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form" id="item-form" onsubmit="return false">
+                        <fieldset class="item-form-field">
+                            <input type="hidden" id="id" value="">
+                            <div class="mb-3">
+                                <label for="description">Description</label>
+                                <input id="description" class="form-control" type="text" placeholder="Describe your task"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tags">Tags</label>
+                                <input id="tags" class="form-control" type="text" name="tags"
+                                    placeholder="tag1, tag2, tag3">
+                            </div>
+                            <div class="mb-3">
+                                <label for="date">Deadline</label>
+                                <input id="deadline" class="form-control" type="date" name="deadline">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary item-form-field" type="submit" form="item-form" value="submit">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container position-absolute top-0 start-50 translate-middle-x p-3">
+        <div id="toast" class="toast align-items-center text-white" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Message
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+    <script src="dist/model.js"></script>
+    <script src="dist/view.js"></script>
+    <script src="dist/controller.js"></script>
+
+</body>
+
+</html>
