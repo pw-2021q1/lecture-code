@@ -1,0 +1,18 @@
+{
+  "name": "handlebars-tutorial",
+  "version": "1.0.0",
+  "description": "Express with handlebars tutorial",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diogo S. Martins",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.9",
+    "@types/express-handlebars": "^3.1.0",
+    "@types/node": "^14.14.10",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0"
+  }
+}

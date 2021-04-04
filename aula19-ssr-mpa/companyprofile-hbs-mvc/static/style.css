@@ -1,0 +1,45 @@
+header {
+    width: 100%;
+    background-color: beige;
+    margin-bottom: 50px;
+    float: left;
+    clear: right;
+}
+
+.logo {
+    width: 150px;
+    float: left;
+}
+
+.company-name {
+    font-size: xx-large;
+    margin-left: 200px;
+}
+
+.company-moto {
+    font-size: x-large;
+    margin-left: 200px;
+}
+
+main {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+table.list img {
+    width: 100px;
+    float: left;
+    margin-right: 30px;
+}
+
+table.list tr td:first {
+    width: 100px;
+}
+
+footer {
+    width: 100%;
+    background-color: beige;
+    margin-top: 50px;
+    padding: 30px;
+}
+

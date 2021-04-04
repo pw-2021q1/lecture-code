@@ -1,0 +1,11 @@
+<table class="table table-striped list">
+    {{#each profiles as |profile|}}
+        <tr>
+            <td>
+                <img src="/static/img/profile_{{profile.id}}.jpg" alt="">
+                <h5><a href="/profile/{{profile.id}}">{{capitalize profile.name}}</a></h5>
+                <p>{{capitalize profile.career}}</p>                
+            </td>
+        </tr>
+    {{/each}}
+</table>

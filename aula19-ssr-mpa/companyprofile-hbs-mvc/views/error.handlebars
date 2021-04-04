@@ -1,0 +1,7 @@
+<h3>Ops! we found an error</h3>
+
+{{#if (equals type "unknown_user")}}
+    <p>Sorry. We could not find user with id {{params.id}} in our records.</p>
+{{else}}
+    <p>Sorry. We could not determine the source of this error. Admins have been notified.</p>
+{{/if}}

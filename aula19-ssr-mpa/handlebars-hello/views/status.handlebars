@@ -1,0 +1,8 @@
+<main>
+    <h3>Ops! We found an error</h3>
+    {{#if (equals code "err_required_fields")}}
+        <p>All fields are required</p>
+    {{else}}
+        <p>Unknown error</p>
+    {{/if}}
+</main>
