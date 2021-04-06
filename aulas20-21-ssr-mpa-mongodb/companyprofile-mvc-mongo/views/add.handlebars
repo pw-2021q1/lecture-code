@@ -1,0 +1,11 @@
+<main class="add-profile">
+    <h2 class="add-title">
+        New Employee Profile
+        <input type="submit" value="Save" form="add-form" 
+                class="btn btn-outline-primary save-btn">
+    </h2>
+
+    <form id="add-form" action="/add" method="post" enctype="multipart/form-data">
+        {{> profile-form }}
+    </form>
+</main>

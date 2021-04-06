@@ -1,0 +1,44 @@
+{{#if (equals type "unknown_user")}}
+    <h3>Ops! We found an error</h3>
+    <p>Sorry. We could not find user with id {{params.id}} in our records</p>
+{{/if}}
+{{#if (equals type "invalid_form_error")}}
+    <h3>Ops! We found an error</h3>
+    <p>Sorry. Some form fields are invalid. Please try again</p>
+{{/if}}
+{{#if (equals type "user_add_error")}}
+    <h3>Ops! We found an error</h3>
+    <p>Sorry. We could not save profile in the database.</p>
+{{/if}}
+{{#if (equals type "user_add_success")}}
+    <h3>Everything is Ok!</h3>
+    <p>New profile successfully added.</p>
+{{/if}}
+{{#if (equals type "user_edit_error")}}
+    <h3>Ops! We found an error</h3>
+    <p>Sorry. We could not edit profile in the database.</p>
+{{/if}}
+{{#if (equals type "user_edit_success")}}
+    <h3>Everything is Ok!</h3>
+    <p>New profile successfully edited.</p>
+{{/if}}
+{{#if (equals type "user_remove_error")}}
+    <h3>Ops! We found an error</h3>
+    <p>Sorry. We could not remove profile in the database.</p>
+{{/if}}
+{{#if (equals type "user_remove_success")}}
+    <h3>Everything is Ok!</h3>
+    <p>New profile successfully removed.</p>
+{{/if}}
+{{#if (equals type "user_edit_load_error")}}
+    <h3>Ops! We found an error</h3>
+    <p>Sorry. We could not find the given profile id.</p>
+{{/if}}
+{{#if (equals type undefined)}}
+    <h3>Ops! We found an error</h3>
+    <p>Sorry. We could not determine the source of this error. 
+        Admins have been notified.</p>
+{{/if}}
+<a href="/">Back Home</a>
+
+    

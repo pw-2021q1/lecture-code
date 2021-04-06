@@ -1,0 +1,30 @@
+<h2 class="list-title">
+    Employee Directory
+    <a href="/add">
+        <button type="button" class="btn btn-outline-primary add-btn">
+            Add Employee
+        </button>
+    </a>
+</h2>
+
+
+<table class="table table-striped list">
+
+    {{#each profiles as |profile|}}
+        <tr>
+            <td>
+                {{#if (isEmpty profile.picture)}}
+                    <img src="/static/img/user-anon.png" alt="">
+                {{else}}
+                    <img src="/picture/{{profile.picture}}" alt="">
+                {{/if}}
+                
+                <h5><a href="/profile/{{profile.id}}">{{profile.name}}</a></h5>
+                <p>{{profile.career}}</p>                
+            </td>
+        </tr>
+    {{/each}}
+
+    
+
+</table>

@@ -1,0 +1,24 @@
+
+<a href="/edit/{{profile.id}}">
+<button type="button" class="btn btn-primary edit-btn">
+        Edit profile
+</button>
+</a>
+
+
+<h3>{{profile.name}}'s profile</h3>
+
+{{#if (isEmpty profile.picture)}}
+        <img src="/static/img/user-anon.png" alt="">
+{{else}}
+        <img width="300px" src="/picture/{{profile.picture}}" alt="">
+{{/if}}
+
+<p>Hi, I'm {{profile.name}}.</p>
+<p>I was born in {{profile.birthyear}}, so that I'm now 
+        {{userAge profile.birthyear}} years old.</p>
+
+<p>I work with {{profile.career}}, that's a cool carreer!</p>
+
+<p>Now, let's read my bio: {{profile.bio}}</p>
+<p>See you later!</p>
