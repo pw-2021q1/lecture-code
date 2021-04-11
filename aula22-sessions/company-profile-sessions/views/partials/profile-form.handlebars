@@ -1,0 +1,30 @@
+<div class="form-row">
+    <div class="col form-group">
+        <label for="name">Name*</label>
+        <input type="text" name="name" class="form-control" required value="{{profile.name}}">
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-4 form-group">
+        <label for="birthyear">Birth year*</label>
+        <input type="number" name="birthyear" class="form-control" required
+            min="1900" max="2099" step="1" value="{{profile.birthyear}}">
+    </div>
+    <div class="col-8 form-group">
+        <label for="career">Career*</label>
+        <input type="text" name="career" class="form-control" required value="{{profile.career}}">
+    </div>
+</div>
+<div class="form-row">
+    <div class="col form-group">
+        <label for="picture">Picture</label>
+        <input type="file" name="picture">
+    </div>
+</div>
+<div class="form-row">
+    <div class="col form-group">
+        <label for="bio">Bio*</label>
+        <textarea name="bio" id="bio" cols="30" rows="10" 
+            class="form-control" required>{{profile.bio}}</textarea>
+    </div>
+</div>

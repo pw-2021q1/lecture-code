@@ -1,0 +1,105 @@
+header {
+    width: 100%;
+    background-color: beige;
+    float: left;
+    clear: right;
+}
+
+.logo {
+    width: 150px;
+    float: left;
+}
+
+.company-name {
+    font-size: xx-large;
+    margin-left: 200px;
+}
+
+.company-moto {
+    font-size: x-large;
+    margin-left: 200px;
+}
+
+nav.toolbar {
+    border-top: 1px solid lightgray;
+    background-color: beige;
+    border-bottom: 1px solid lightgray;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-bottom: 50px;
+}
+
+
+ol.breadcrumb {
+    /* border-top: 1px solid lightgray; */
+    background-color: beige;
+    margin-bottom: 0;
+    padding: 5px;
+    /* border-bottom: 1px solid lightgray; */
+}
+
+.add-btn, .save-btn, .delete-btn {
+    float: right;
+}
+
+.edit-btn {
+    float: right;
+    margin-right: 80px;
+}
+
+.delete-btn {
+    margin-left: 30px;
+}
+
+button a {
+    color: none;
+    text-decoration: none;
+}
+
+main {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.page-title {
+    color: gray;
+    margin-bottom: 50px;
+}
+
+table.list img {
+    width: 100px;
+    float: left;
+    margin-right: 30px;
+}
+
+table.list tr td:first {
+    width: 100px;
+}
+
+main.profile-detail {
+    width: 800px;
+    margin: auto;
+}
+
+main.profile-detail h2 {
+    text-align: center;
+}
+
+main.profile-detail img {
+    display: block;
+    margin:auto;
+    width: 400px;
+    padding: 20px;
+}
+
+footer {
+    width: 100%;
+    background-color: beige;
+    margin-top: 50px;
+    padding: 30px;
+}
+
+.login-page {
+    width: 50%;
+}
+

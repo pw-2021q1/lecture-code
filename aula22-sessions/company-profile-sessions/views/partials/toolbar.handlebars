@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light toolbar">
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li class="nav-item">
+                <nav class="login-area">
+                    <a class="nav-link" href="/">Home</a>
+                </nav>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+            {{#if authenticated}}
+                <li class="nav-item active">
+                    <a href="/logout">
+                        <button type="button" class="btn btn-primary add-btn">
+                            Logout
+                        </button>
+                    </a>
+                </li>
+            {{else}}
+                <li class="nav-item active">
+                    <a href="/login">
+                        <button type="button" class="btn btn-primary add-btn">
+                            Login
+                        </button>
+                    </a>
+                </li>
+            {{/if}}
+            
+        </ul>
+    </div>
+</nav>
+

@@ -1,0 +1,19 @@
+<main class="add-profile">
+    <h2 class="add-title">
+        Edit Employee Profile
+
+        <input type="submit" form="remove-form" class="btn btn-outline-danger delete-btn" value="Delete">
+
+        <input type="submit" value="Save" form="edit-form" 
+                class="btn btn-outline-primary save-btn">
+    </h2>
+
+    <form id="edit-form" action="/edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{{profile.id}}">
+        {{> profile-form }}
+    </form>
+
+    <form id="remove-form" action="/remove" method="post">
+        <input type="hidden" name="id" value="{{profile.id}}">
+    </form>
+</main>

@@ -1,0 +1,31 @@
+{
+  "name": "companyprofile-sessions-starter",
+  "version": "1.0.0",
+  "description": "Company profile structured as MVC with MongoDB and sessions",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diogo S. Martins",
+  "license": "ISC",
+  "dependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/connect-mongodb-session": "^2.4.0",
+    "@types/express": "^4.17.9",
+    "@types/express-flash": "^0.0.2",
+    "@types/express-handlebars": "^3.1.0",
+    "@types/express-session": "^1.17.3",
+    "@types/mongodb": "^3.5.34",
+    "@types/node": "^14.14.10",
+    "bcrypt": "^5.0.0",
+    "bootstrap": "^4.5.0",
+    "connect-mongodb-session": "^2.4.1",
+    "express": "^4.17.1",
+    "express-flash": "^0.0.2",
+    "express-handlebars": "^4.0.4",
+    "express-session": "^1.17.1",
+    "jquery": "^3.5.1",
+    "mongodb": "^3.6.3",
+    "multiparty-express": "^0.1.9"
+  }
+}
