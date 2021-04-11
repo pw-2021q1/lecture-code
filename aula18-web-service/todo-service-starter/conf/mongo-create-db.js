@@ -17,35 +17,35 @@ db.sequences.insertOne({
     value: 1
 });
 
-function genId() {
+function nextId() {
     return db["sequences"].findOneAndUpdate(
         {name: "todo-item-id"},
         {$inc: {value: 1}}).value
 }
 
 db["todo-items"].insertOne({
-    "id": genId(),
+    "id": nextId(),
     "description": "Make up some new ToDos",
     "deadline": new Date(Date.parse("01/01/2019 10:45")).toUTCString(),
 })
 db["todo-items"].insertOne({
-    "id": genId(),
+    "id": nextId(),
     "description": "Prep for Monday's class",
     "tags": ["tag1", "tag2"],
     "deadline": new Date(Date.parse("10/01/2019")).toUTCString(),
 })
 db["todo-items"].insertOne({
-    "id": genId(),
+    "id": nextId(),
     "description": "Answer recruiter emails on LinkedIn",
     "tags": ["tag1", "tag2"],
 })
 db["todo-items"].insertOne({
-    "id": genId(),
+    "id": nextId(),
     "description": "Take Gracie to the park",
     "deadline": new Date(Date.parse("04/07/2020 11:45")).toUTCString(),
 })
 db["todo-items"].insertOne({
-    "id": genId(),
+    "id": nextId(),
     "description": "Finish writing book",
     "tags": ["tag1", "tag2"],
 })
